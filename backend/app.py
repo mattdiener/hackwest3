@@ -88,7 +88,7 @@ def createTopicSuggestion(boardId,topicId):
     if 'url' in request.form:
         url = request.form['url']
     voteCount = 0
-    item = {'name':name,'boardId':boardId,'topicId':topicId,'suggestionId':id,'description':description,'url':url,'voteCount':voteCount}
+    item = {'name':name,'boardId':boardId,'topicId':topicId,'suggestionId':id,'description':description,'url':url,'votes':[],'voteCount':voteCount}
     json = jsonify(**item)
     mongo.db.suggestions.insert_one(item)
     mongo.db.topics.update({'boardId':boardId,'topicId':topicId},{'$push':{'suggestions':id}})
@@ -113,6 +113,44 @@ def getTopicSuggestion(boardId,topicId,suggestionId):
     suggestion = mongo.db.suggestions.find_one_or_404({'suggestionId':suggestionId,'topicId':topicId,'boardId': boardId})
     del suggestion['_id']
     return suggestion
+
+@app.route('/boards/<boardId>/topics/<topicId>/suggestions/<suggestionId>/vote',methods=['PUT'])
+def handleSuggestionVote(boardId,topicId,suggestionId):
+    fields = {}
+    if not ('name' in request.form):
+        return jsonify({'status':'400','error':''})
+    if not ('vote' in request.form):
+        return jsonify({'status':'400','error':''})
+    fields['name'] = request.form['name']
+    fields['vote'] = request.form['vote']
+
+    suggestion = getTopicSuggestion(boardId,topicId,suggestionId)
+    if not 'votes' in suggestion:
+        suggestion['votes'] = []
+
+    votes = suggestion['votes']
+    voteCount = suggestion['voteCount']
+
+    found = False
+    for v in votes:
+        if v['name'] == fields['name']:
+            v['vote'] = fields['vote']
+            found = True
+            break
+
+    if not found:
+        votes.append(fields)
+
+    voteCount = 0
+    for v in votes:
+        if v['vote'] == '1':
+            voteCount += 1
+        else:
+            voteCount -= 1
+
+    mongo.db.suggestions.update({'boardId':boardId,'topicId':topicId,'suggestionId':suggestionId},{'$set':{'votes':votes, 'voteCount':voteCount}})
+    return jsonify(**getTopicSuggestion(boardId,topicId,suggestionId))
+
 
 @app.route('/boards/<boardId>/topics/<topicId>/suggestions/<suggestionId>/poll')
 def pollTopicSuggestion(boardId,topicId,suggestionId):
