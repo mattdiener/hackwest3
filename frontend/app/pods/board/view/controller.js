@@ -8,9 +8,6 @@ export default Ember.Controller.extend({
   currentSelectedTopicId: null,
   newSuggestion: null,
   currentBoardToken: null,
-  // topicsList: function() {
-  //   return this.get('model').topics;
-  // }.property('model'),
 
   init() {
     Ember.$.getScript('/js/embedTlkio.js');
