@@ -3,10 +3,10 @@
 <div class="ui horizontal clearing segment" data-id="{{suggestion.suggestionId}}">
     <div class="ui suggestion-vote">
         <div class="ui mini buttons">
-            <button class="ui button">Go</button>
+            <button class="ui button" {{action 'vote' true}} disabled={{disableYes}}>Go</button>
             <div class="or">
             </div>
-            <button class="ui button">Not</button>
+            <button class="ui button" {{action 'vote' false}} disabled={{disableNo}}>Not</button>
         </div>
     </div>
     <div class="ui suggestion-ok">

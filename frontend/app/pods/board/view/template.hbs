@@ -9,7 +9,7 @@
               <div class="ui segment">
                 {{#ui-accordion class="styled topics-accordion"}}
                   {{#each model.board.topics as |topic|}}
-                    {{board-topic topic=topic currentSelectedTopicId=currentSelectedTopicId}}
+                    {{board-topic topic=topic}}
                   {{/each}}
                 {{/ui-accordion}}
               </div>

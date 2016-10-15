@@ -17,6 +17,7 @@ export default Ember.Route.extend({
         topics: [{
           name: "Breakfast at restaurant 1",
           topicId: "123",
+          boardId:"lolo",
           suggestions: [{
             name: "Restaurante specialize",
             suggestionId: "434234",
@@ -29,6 +30,7 @@ export default Ember.Route.extend({
         }, {
           name: "Lunch at restaurant 2",
           topicId: "432",
+          boardId:"poop",
           suggestions: [{
             name: "Burgers r Us",
             suggestionId: "6546",

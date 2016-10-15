@@ -2,20 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e50fcde7-649c-4bf5-a799-53ed3446a8be" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/api_samples/boardDummy.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/api_samples/getBoardDummy.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/api_samples/suggestionDummy.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/api_samples/topicDummy1.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/api_samples/topicDummy2.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/requirements.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/startMongo.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app.py" afterPath="$PROJECT_DIR$/backend/app.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/app/pods/board/view/controller.js" afterPath="$PROJECT_DIR$/frontend/app/pods/board/view/controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/app/pods/board/view/route.js" afterPath="$PROJECT_DIR$/frontend/app/pods/board/view/route.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/app/pods/board/view/styles.less" afterPath="$PROJECT_DIR$/frontend/app/pods/board/view/styles.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/app/pods/board/view/template.hbs" afterPath="$PROJECT_DIR$/frontend/app/pods/board/view/template.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/app/pods/components/board-suggestion/component.js" afterPath="$PROJECT_DIR$/frontend/app/pods/components/board-suggestion/component.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/app/pods/components/board-suggestion/template.hbs" afterPath="$PROJECT_DIR$/frontend/app/pods/components/board-suggestion/template.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/app/pods/components/board-topic/component.js" afterPath="$PROJECT_DIR$/frontend/app/pods/components/board-topic/component.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/app/pods/components/board-topic/template.hbs" afterPath="$PROJECT_DIR$/frontend/app/pods/components/board-topic/template.hbs" />
     </list>
     <ignored path="hackwest3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="styles.less" pinned="false" current-in-tab="true">
+      <file leaf-file-name="styles.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/view/styles.less">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -49,8 +44,8 @@
       <file leaf-file-name="template.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/view/template.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-151">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="187">
+              <caret line="11" column="45" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -59,18 +54,18 @@
       <file leaf-file-name="controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/view/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
+            <state relative-caret-position="612">
+              <caret line="72" column="39" selection-start-line="66" selection-start-column="5" selection-end-line="72" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="route.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="route.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/view/route.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+            <state relative-caret-position="442">
+              <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -79,18 +74,8 @@
       <file leaf-file-name="template.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/app/pods/components/board-topic/template.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="template.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/app/pods/components/board-suggestion/template.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+            <state relative-caret-position="255">
+              <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -99,8 +84,8 @@
       <file leaf-file-name="component.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/app/pods/components/board-topic/component.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -109,18 +94,18 @@
       <file leaf-file-name="component.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/app/pods/components/board-suggestion/component.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+            <state relative-caret-position="85">
+              <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="template.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/template.hbs">
+        <entry file="file://$PROJECT_DIR$/frontend/app/pods/components/board-suggestion/template.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="33" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
+            <state relative-caret-position="136">
+              <caret line="8" column="97" selection-start-line="8" selection-start-column="97" selection-end-line="8" selection-end-column="97" />
               <folding />
             </state>
           </provider>
@@ -157,14 +142,14 @@
         <option value="$PROJECT_DIR$/frontend/app/styles/app.less" />
         <option value="$PROJECT_DIR$/frontend/app/pods/board/template.hbs" />
         <option value="$PROJECT_DIR$/frontend/config/environment.js" />
+        <option value="$PROJECT_DIR$/frontend/app/pods/board/view/styles.less" />
         <option value="$PROJECT_DIR$/frontend/app/pods/components/board-suggestion/template.hbs" />
+        <option value="$PROJECT_DIR$/frontend/app/pods/board/view/controller.js" />
         <option value="$PROJECT_DIR$/frontend/app/pods/components/board-topic/template.hbs" />
-        <option value="$PROJECT_DIR$/frontend/app/pods/components/board-suggestion/component.js" />
         <option value="$PROJECT_DIR$/frontend/app/pods/components/board-topic/component.js" />
         <option value="$PROJECT_DIR$/frontend/app/pods/board/view/template.hbs" />
-        <option value="$PROJECT_DIR$/frontend/app/pods/board/view/controller.js" />
         <option value="$PROJECT_DIR$/frontend/app/pods/board/view/route.js" />
-        <option value="$PROJECT_DIR$/frontend/app/pods/board/view/styles.less" />
+        <option value="$PROJECT_DIR$/frontend/app/pods/components/board-suggestion/component.js" />
       </list>
     </option>
   </component>
@@ -863,12 +848,12 @@
       <updated>1476510146816</updated>
       <workItem from="1476510148549" duration="458000" />
       <workItem from="1476510636695" duration="10000" />
-      <workItem from="1476510663330" duration="21264000" />
+      <workItem from="1476510663330" duration="28467000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21732000" />
+    <option name="totallyTimeSpent" value="28935000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -1199,14 +1184,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/template.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="33" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/config/environment.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1215,66 +1192,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app/pods/components/board-suggestion/template.hbs">
+    <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/view/styles.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+        <state relative-caret-position="340">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app/pods/components/board-suggestion/component.js">
+    <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/template.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+          <caret line="0" column="33" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app/pods/components/board-topic/template.hbs">
+    <entry file="file://$PROJECT_DIR$/frontend/app/pods/components/board-suggestion/template.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app/pods/components/board-topic/component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <caret line="8" column="97" selection-start-line="8" selection-start-column="97" selection-end-line="8" selection-end-column="97" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/view/controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
+        <state relative-caret-position="612">
+          <caret line="72" column="39" selection-start-line="66" selection-start-column="5" selection-end-line="72" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/view/template.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-151">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="187">
+          <caret line="11" column="45" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/app/pods/components/board-suggestion/component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/app/pods/components/board-topic/component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/app/pods/components/board-topic/template.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/view/route.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/view/styles.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="442">
+          <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
           <folding />
         </state>
       </provider>

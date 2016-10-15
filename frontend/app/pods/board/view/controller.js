@@ -8,6 +8,9 @@ export default Ember.Controller.extend({
   currentSelectedTopicId: null,
   newSuggestion: null,
   currentBoardToken: null,
+  // topicsList: function() {
+  //   return this.get('model').topics;
+  // }.property('model'),
 
   init() {
     const self = this;
@@ -46,7 +49,8 @@ export default Ember.Controller.extend({
           topic: this.newTopic
         }
       };
-
+      console.log(this.get('model.topics'));
+      const self = this;
       Ember.$.ajax(opts).then(() => {
         this.get('notifications').success('Topic added!', {
           autoClear: true,
@@ -54,14 +58,19 @@ export default Ember.Controller.extend({
         });
         // Add this new topic into
         console.log("lol");
+        self.set('newTopic', "");
       }, (xhr) => {
         this.get('notifications').error('Error adding topic!', {
           autoClear: true,
           clearDuration: 1200
         });
-        this.set('model.')
+        self.get('model.board.topics').pushObject({
+          "boardId": "KbLc",
+          "name": "Monday Morning",
+          "suggestions": [],
+          "topicId": "RLn9"});
         // error case, clear text box
-        console.log("2");
+        console.log(self.get('model'));
       });
     }
   }
