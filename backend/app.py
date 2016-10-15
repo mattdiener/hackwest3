@@ -153,12 +153,16 @@ def handleSuggestionVote(boardId,topicId,suggestionId):
     if not found:
         votes.append(fields)
 
+    print(votes)
+
     voteCount = 0
     for v in votes:
-        if v['vote'] == '1':
+        if v['vote'] == 1:
             voteCount += 1
         else:
             voteCount -= 1
+
+    print(voteCount)
 
     mongo.db.suggestions.update({'boardId':boardId,'topicId':topicId,'suggestionId':suggestionId},{'$set':{'votes':votes, 'voteCount':voteCount}})
     return jsonify(**getTopicSuggestion(boardId,topicId,suggestionId))
