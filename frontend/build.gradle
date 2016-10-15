@@ -1,0 +1,15 @@
+apply plugin: "com.kiefer.gradle.embercli"
+apply plugin: "idea"
+
+idea {
+  module {
+    excludeDirs += file('tmp')
+    excludeDirs += file('node_modules')
+    excludeDirs += file('bower_components')
+  }
+}
+
+embercli {
+  testCommand = "test"
+  testArguments = ["--split=5", "--parallel", "--test-port=0"]
+}

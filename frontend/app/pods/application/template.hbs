@@ -1,0 +1,13 @@
+{{#if session.isAuthenticated}}
+
+  {{side-nav}}
+  {{top-nav}}
+
+{{/if}}
+
+<div class="pusher fullscreen">
+    <div class="full height">
+      {{outlet}}
+    </div>
+</div>
+
