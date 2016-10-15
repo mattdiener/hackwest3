@@ -1,0 +1,52 @@
+<div id="main-board" class="ui middle aligned center aligned grid">
+    <div class="five wide column chat"></div>
+    <div class="six wide column">
+        <h2>{{model.board.name}}</h2>
+        <div class="ui raised segments suggestion">
+            <div class="ui segment">
+              {{#ui-accordion class="styled"}}
+                {{#each model.board.topics as |topic|}}
+                    <div class="title">
+                      {{topic.name}}
+                    </div>
+                    <div class="content">
+                      {{#each topic.suggestions as |suggestion|}}
+                          <div class="ui horizontal clearing segment">
+                              <div class="ui suggestion-vote">
+                                  <div class="ui mini buttons">
+                                      <button class="ui button">Go</button>
+                                      <div class="or">
+                                      </div>
+                                      <button class="ui button">Not</button>
+                                  </div>
+                              </div>
+                              <div class="ui suggestion-ok">
+                                {{suggestion.votes}} <i class="green check icon"></i>
+                              </div>
+                              <div class="ui suggestion-name">
+                                  <p>
+                                    {{suggestion.name}}
+                                  </p>
+                              </div>
+                          </div>
+                      {{/each}}
+                    </div>
+                {{/each}}
+              {{/ui-accordion}}
+            </div>
+            <div class="ui secondary segment">
+                <div class="add-suggestion">
+                    <div class="suggestion-input">
+                        <div class="ui input the-suggestion">
+                          {{input id='the-suggestion' type="text" placeholder='Enter new suggestion' value=newSuggestion}}
+                        </div>
+                    </div>
+                    <div class="suggestion-add-input">
+                        <a {{action 'addSuggestion'}}><i class="add grey square icon add-suggestion-button"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="five wide column info"></div>
+</div>
