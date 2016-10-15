@@ -28,9 +28,18 @@ def createBoard():
     mongo.db.boards.insert_one(item)
     return json
 
-@app.route('/boards/<boardId>')
-def getBoardJSON(boardId):
+@app.route('/boards/<boardId>',methods=['GET','PUT'])
+def handleBoard(boardId):
+    if request.method == 'GET':
+        return jsonify(**getBoard(boardId))
+    fields = {}
+    if 'name' in request.form:
+        fields['name'] = request.form['name']
+        print(fields)
+    if len(fields) > 0:
+        mongo.db.boards.update({'boardId':boardId},{'$set': fields})
     return jsonify(**getBoard(boardId))
+
 
 def getBoard(boardId):
     board = mongo.db.boards.find_one_or_404({'boardId': boardId})
@@ -50,8 +59,15 @@ def createBoardTopic(boardId):
     mongo.db.boards.update({'boardId':boardId},{'$push': {'topics':id}})
     return json
 
-@app.route('/boards/<boardId>/topics/<topicId>')
-def getBoardTopicJSON(boardId,topicId):
+@app.route('/boards/<boardId>/topics/<topicId>',methods=['GET','PUT'])
+def handleBoardTopic(boardId,topicId):
+    if request.method == 'GET':
+        return jsonify(**getBoardTopic(boardId,topicId))
+    fields = {}
+    if 'name' in request.form:
+        fields['name'] = request.form['name']
+    if len(fields) > 0:
+        mongo.db.topics.update({'boardId':boardId,'topicId':topicId},{'$set': fields})
     return jsonify(**getBoardTopic(boardId,topicId))
 
 def getBoardTopic(boardId,topicId):
@@ -66,7 +82,11 @@ def createTopicSuggestion(boardId,topicId):
     name = request.form['name']
     id = b58encode(uuid.uuid4().bytes)[:4]
     description = ''
+    if 'description' in request.form:
+        description = request.form['description']
     url = ''
+    if 'url' in request.form:
+        url = request.form['url']
     voteCount = 0
     item = {'name':name,'boardId':boardId,'topicId':topicId,'suggestionId':id,'description':description,'url':url,'voteCount':voteCount}
     json = jsonify(**item)
@@ -74,8 +94,19 @@ def createTopicSuggestion(boardId,topicId):
     mongo.db.topics.update({'boardId':boardId,'topicId':topicId},{'$push':{'suggestions':id}})
     return json
 
-@app.route('/boards/<boardId>/topics/<topicId>/suggestions/<suggestionId>')
+@app.route('/boards/<boardId>/topics/<topicId>/suggestions/<suggestionId>',methods=['GET','PUT'])
 def getTopicSuggestionJSON(boardId,topicId,suggestionId):
+    if request.method == 'GET':
+        return jsonify(**getTopicSuggestion(boardId,topicId,suggestionId))
+    fields = {}
+    if 'name' in request.form:
+        fields['name'] = request.form['name']
+    if 'description' in request.form:
+        fields['description'] = request.form['description']
+    if 'url' in request.form:
+        fields['url'] = request.form['url']
+    if len(fields) > 0:
+        mongo.db.suggestions.update({'boardId':boardId,'topicId':topicId,'suggestionId':suggestionId},{'$set': fields})
     return jsonify(**getTopicSuggestion(boardId,topicId,suggestionId))
 
 def getTopicSuggestion(boardId,topicId,suggestionId):
