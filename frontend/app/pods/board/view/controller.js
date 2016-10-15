@@ -39,10 +39,35 @@ export default Ember.Controller.extend({
 
   actions: {
     changeValue (val) {
+      if (val === "") {
+        return;
+      }
       console.log(val);
-    },
-    rollback(val) {
-      console.log(val);
+      const opts = {
+        url: '/boards/'+this.get('currentBoardToken')+"",
+        type: 'PUT',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: {
+          topic: val
+        }
+      };
+      const self = this;
+      Ember.$.ajax(opts).then(() => {
+        this.get('notifications').success('Title changed!', {
+          autoClear: true,
+          clearDuration: 1200
+        });
+        // Add this new topic into
+        self.set('model.name', val);
+      }, (xhr) => {
+        this.get('notifications').error('Error chanign topic!', {
+          autoClear: true,
+          clearDuration: 1200
+        });
+        // TODO: remove this
+        self.set('model.name', val);
+      });
     },
 
     addTopic() {
