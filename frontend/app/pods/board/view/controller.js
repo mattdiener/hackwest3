@@ -19,7 +19,7 @@ export default Ember.Controller.extend({
     Ember.$(document).ready(() => {
       const accordion = Ember.$('.topics-accordion').accordion({
         onChange: function () {
-          self.set('currentSelectedTopicId', self.getAttribute('data-id'));
+          self.set('currentSelectedTopicId', this.getAttribute('data-id'));
         }
       });
       if (accordion) {
