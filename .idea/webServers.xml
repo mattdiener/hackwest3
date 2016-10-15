@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ce1129c9-346b-48cd-b7e8-f015d62eaf45" name="openstack" url="http://134.117.26.133">
+        <fileTransfer host="134.117.26.133" port="22" privateKey="C:\Users\cli\.ssh\id_rsa" rootFolder="/home/ubuntu/hackwest3" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
