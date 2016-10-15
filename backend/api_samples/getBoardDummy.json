@@ -1,0 +1,48 @@
+{
+  "boardId": "KbLc",
+  "chatToken": "hw3_Fpyi",
+  "name": "Hacking in Iceland",
+  "topics": [
+    {
+      "boardId": "KbLc",
+      "name": "Hotel Booking",
+      "suggestions": [
+        {
+          "boardId": "KbLc",
+          "description": "",
+          "name": "Kex Hostel",
+          "suggestionId": "TnUe",
+          "topicId": "86F3",
+          "url": "",
+          "voteCount": 0
+        },
+        {
+          "boardId": "KbLc",
+          "description": "",
+          "name": "Reykjavik Lights",
+          "suggestionId": "6p1P",
+          "topicId": "86F3",
+          "url": "",
+          "voteCount": 0
+        }
+      ],
+      "topicId": "86F3"
+    },
+    {
+      "boardId": "KbLc",
+      "name": "Monday Morning",
+      "suggestions": [
+        {
+          "boardId": "KbLc",
+          "description": "",
+          "name": "Visit Blue Lagoon",
+          "suggestionId": "Buwt",
+          "topicId": "RLn9",
+          "url": "",
+          "voteCount": 0
+        }
+      ],
+      "topicId": "RLn9"
+    }
+  ]
+}
