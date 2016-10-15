@@ -4,7 +4,14 @@
   {{#if theModel}}
       <div class="five wide column chat"></div>
       <div class="six wide column">
-          <h2>{{model.board.name}}</h2>
+          <p class="pseudo-h2">
+            <div class="field">
+              {{ember-inline-edit
+              value=model.board.name
+              onSave=(action "changeValue")
+              onClose=(action "rollback" model.board.name)}}
+            </div>
+          </p>
           <div class="ui raised segments suggestion">
               <div class="ui segment">
                 {{#ui-accordion class="styled topics-accordion"}}

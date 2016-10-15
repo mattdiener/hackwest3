@@ -35,6 +35,13 @@ export default Ember.Controller.extend({
   }.observes('model'),
 
   actions: {
+    changeValue (val) {
+      console.log(val);
+    },
+    rollback(val) {
+      console.log(val);
+    },
+
     addTopic() {
       console.log(this.newTopic);
       if ( !this.newTopic) {
