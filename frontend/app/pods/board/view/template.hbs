@@ -12,7 +12,7 @@
               {{ember-inline-edit
                 class="field"
                 value=model.board.name
-                onClose=(action "changeValue")}}
+                onClose=(action "changeValue" model.board.name)}}
           </p>
           <div class="ui raised segments suggestion">
               <div class="ui segment">

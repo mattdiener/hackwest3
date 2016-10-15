@@ -33,6 +33,7 @@ export default Ember.Controller.extend({
     const model = this.get("model");
     if (model && model.status === 200) {
       this.set('theModel', model);
+      console.log(model);
       this.set('currentBoardToken', model.boardId);
     }
   }.observes('model'),
@@ -40,33 +41,31 @@ export default Ember.Controller.extend({
   actions: {
     changeValue (val) {
       if (val === "") {
+        console.log("what the fk");
         return;
       }
       console.log(val);
       const opts = {
-        url: '/boards/'+this.get('currentBoardToken')+"",
+        url: '/boards/'+this.get('currentBoardToken'),
         type: 'PUT',
-        dataType: 'json',
+        // dataType: 'json',
         contentType: 'application/json',
-        data: {
-          topic: val
-        }
+        data: JSON.stringify({name: val})
       };
       const self = this;
-      Ember.$.ajax(opts).then(() => {
+      Ember.$.ajax(opts).then((result) => {
         this.get('notifications').success('Title changed!', {
           autoClear: true,
           clearDuration: 1200
         });
-        // Add this new topic into
-        self.set('model.name', val);
+        self.set('model.name', result.board.name);
       }, (xhr) => {
         this.get('notifications').error('Error chanign topic!', {
           autoClear: true,
           clearDuration: 1200
         });
         // TODO: remove this
-        self.set('model.name', val);
+
       });
     },
 
@@ -78,27 +77,26 @@ export default Ember.Controller.extend({
       const opts = {
         url: '/boards/'+this.get('currentBoardToken')+"/topics",
         type: 'POST',
-        dataType: 'json',
+        // dataType: 'json',
         contentType: 'application/json',
-        data: {
-          topic: this.newTopic
-        }
+        data: JSON.stringify({name: this.newTopic})
       };
       console.log(this.get('model.topics'));
       const self = this;
-      Ember.$.ajax(opts).then(() => {
+      Ember.$.ajax(opts).then((result) => {
         this.get('notifications').success('Topic added!', {
           autoClear: true,
           clearDuration: 1200
         });
         // Add this new topic into
-        console.log("lol");
+        self.get('model.board.topics').pushObject(result);
         self.set('newTopic', "");
       }, (xhr) => {
         this.get('notifications').error('Error adding topic!', {
           autoClear: true,
           clearDuration: 1200
         });
+        /*
         self.get('model.board.topics').pushObject({
           "boardId": "KbLc",
           "name": "Monday Morning",
@@ -106,6 +104,7 @@ export default Ember.Controller.extend({
           "topicId": "RLn9"});
         // error case, clear text box
         console.log(self.get('model'));
+        */
       });
     }
   }

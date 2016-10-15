@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   suggestionId: Ember.computed('suggestion', () => { return this.get('suggestion.suggestionId'); }),
   disableYes: false,
   disableNo: false,
-  userIdStub: 1234,
+  userIdStub: "Matt",
 
   didInsertElement() {
     const voters = this.get('suggestion.votes');
@@ -38,39 +38,41 @@ export default Ember.Component.extend({
     vote(yes) {
 
       const urlToPut = "/boards/"+this.get('suggestion.boardId')+"/topics/"+this.get('suggestion.topicId') +
-                       "/suggestions/"+this.get('suggestion.suggestionId') + "/" + yes ? 1 : 0;
+                       "/suggestions/"+this.get('suggestion.suggestionId') + "/vote";
       const opts = {
         url: urlToPut,
         type: 'PUT',
-        dataType: 'json',
+        // dataType: 'json',
         contentType: 'application/json',
-        data: {
-          userId: this.userIdStub
-        }
+        data: JSON.stringify({
+          name: this.userIdStub,
+          vote: yes ? 1 : 0
+        })
       };
 
       const self = this;
-      Ember.$.ajax(opts).then(() => {
+      Ember.$.ajax(opts).then((result) => {
         this.get('notifications').success('Vote submitted!', {
           autoClear: true,
           clearDuration: 1200
         });
         // Add this new topic into
         localStorage[this.get('suggestion.suggestionId')] = yes ? 1 : 0;
-        let currentVote = self.get('suggestion.voteCount');
-        const increment =  yes ? self.get('disableNo') ? 2 : 1 : self.get("disableYes") ? -2 : -1;
-        currentVote += increment;
-        self.set("suggestion.voteCount", currentVote);
+        self.set("suggestion.voteCount", result.voteCount);
+        console.log(result.voteCount);
+        this.willRender()
       }, (xhr) => {
         this.get('notifications').error('Error voting!', {
           autoClear: true,
           clearDuration: 1200
         });
+        /*
         localStorage[this.get('suggestion.suggestionId')] = yes ? 1 : 0;
         let currentVote = self.get('suggestion.voteCount');
         const increment =  yes ? self.get('disableNo') ? 2 : 1 : self.get("disableYes") ? -2 : -1;
         currentVote += increment;
         self.set("suggestion.voteCount", currentVote);
+        */
       });
     }
   }

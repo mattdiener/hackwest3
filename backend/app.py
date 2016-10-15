@@ -19,7 +19,8 @@ def index():
 
 @app.route('/boards',methods=['POST'])
 def createBoard():
-    name = request.form['name']
+    data = request.get_data()
+    name = data['name']
     id = b58encode(uuid.uuid4().bytes)[:4]
     chatToken = 'hw3_' + b58encode(uuid.uuid4().bytes)[:4]
     topics = []
@@ -33,11 +34,14 @@ def handleBoard(boardId):
     if request.method == 'GET':
         return jsonify(**{'status':200,'board':getBoard(boardId),'boardId':boardId})
     fields = {}
-    if 'name' in request.form:
-        fields['name'] = request.form['name']
+    data = request.get_json();
+    print(data)
+    if 'name' in data:
+        fields['name'] = data['name']
         print(fields)
     if len(fields) > 0:
         mongo.db.boards.update({'boardId':boardId},{'$set': fields})
+    print("method complete")
     return jsonify(**{'status':200,'board':getBoard(boardId),'boardId':boardId})
 
 
@@ -51,13 +55,15 @@ def getBoard(boardId):
 
 @app.route('/boards/<boardId>/topics',methods=['POST'])
 def createBoardTopic(boardId):
-    name = request.form['name']
+    datas = request.get_json()
+    name = datas['name']
     id = b58encode(uuid.uuid4().bytes)[:4]
     suggestions = []
     item = {'name':name,'boardId':boardId,'topicId':id,'suggestions':suggestions,'status':200}
     json = jsonify(**item)
     mongo.db.topics.insert_one(item)
     mongo.db.boards.update({'boardId':boardId},{'$push': {'topics':id}})
+    print("save completed")
     return json
 
 @app.route('/boards/<boardId>/topics/<topicId>',methods=['GET','PUT'])
@@ -65,8 +71,8 @@ def handleBoardTopic(boardId,topicId):
     if request.method == 'GET':
         return jsonify(**getBoardTopic(boardId,topicId))
     fields = {}
-    if 'name' in request.form:
-        fields['name'] = request.form['name']
+    if 'name' in request.data:
+        fields['name'] = request.data['name']
     if len(fields) > 0:
         mongo.db.topics.update({'boardId':boardId,'topicId':topicId},{'$set': fields})
     return jsonify(**getBoardTopic(boardId,topicId))
@@ -81,14 +87,15 @@ def getBoardTopic(boardId,topicId):
 
 @app.route('/boards/<boardId>/topics/<topicId>/suggestions',methods=['POST'])
 def createTopicSuggestion(boardId,topicId):
-    name = request.form['name']
+    data = request.get_json()
+    name = data['name']
     id = b58encode(uuid.uuid4().bytes)[:4]
     description = ''
-    if 'description' in request.form:
-        description = request.form['description']
+    if 'description' in data:
+        description = data['description']
     url = ''
-    if 'url' in request.form:
-        url = request.form['url']
+    if 'url' in data:
+        url = data['url']
     voteCount = 0
     item = {'name':name,'boardId':boardId,'topicId':topicId,'suggestionId':id,'description':description,'url':url,'votes':[],'voteCount':voteCount,'status':200}
     json = jsonify(**item)
@@ -101,12 +108,13 @@ def getTopicSuggestionJSON(boardId,topicId,suggestionId):
     if request.method == 'GET':
         return jsonify(**getTopicSuggestion(boardId,topicId,suggestionId))
     fields = {'status':200}
-    if 'name' in request.form:
-        fields['name'] = request.form['name']
-    if 'description' in request.form:
-        fields['description'] = request.form['description']
-    if 'url' in request.form:
-        fields['url'] = request.form['url']
+    data = request.get_json()
+    if 'name' in data:
+        fields['name'] = data['name']
+    if 'description' in data:
+        fields['description'] = data['description']
+    if 'url' in data:
+        fields['url'] = data['url']
     if len(fields) > 0:
         mongo.db.suggestions.update({'boardId':boardId,'topicId':topicId,'suggestionId':suggestionId},{'$set': fields})
     return jsonify(**getTopicSuggestion(boardId,topicId,suggestionId))
@@ -120,12 +128,13 @@ def getTopicSuggestion(boardId,topicId,suggestionId):
 @app.route('/boards/<boardId>/topics/<topicId>/suggestions/<suggestionId>/vote',methods=['PUT'])
 def handleSuggestionVote(boardId,topicId,suggestionId):
     fields = {}
-    if not ('name' in request.form):
+    data = request.get_json()
+    if not ('name' in data):
         return jsonify({'status':'400','error':''})
-    if not ('vote' in request.form):
+    if not ('vote' in data):
         return jsonify({'status':'400','error':''})
-    fields['name'] = request.form['name']
-    fields['vote'] = request.form['vote']
+    fields['name'] = data['name']
+    fields['vote'] = data['vote']
 
     suggestion = getTopicSuggestion(boardId,topicId,suggestionId)
     if not 'votes' in suggestion:

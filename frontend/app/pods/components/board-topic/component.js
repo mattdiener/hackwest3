@@ -24,36 +24,26 @@ export default Ember.Component.extend({
       const opts = {
         url: urlToPost,
         type: 'POST',
-        dataType: 'json',
+        // dataType: 'json',
         contentType: 'application/json',
-        data: {
-          topic: this.newSuggestion
-        }
+        data: JSON.stringify({name: this.newSuggestion})
       };
 
       const self = this;
-      Ember.$.ajax(opts).then(() => {
+      Ember.$.ajax(opts).then((result) => {
         this.get('notifications').success('Suggestion added!', {
           autoClear: true,
           clearDuration: 1200
         });
         // clear text box then add notification
         self.set('newSuggestion', "");
+        this.get('topic.suggestions').pushObject(result);
       }, (xhr) => {
         this.get('notifications').error('Error adding suggestion!', {
           autoClear: true,
           clearDuration: 1200
         });
         console.log(this.get('topic.suggestions'));
-        this.get('topic.suggestions').pushObject({
-          "boardId": "KbLc",
-          "description": "",
-          "name": "Visit Blue Lagoon",
-          "suggestionId": "Buwt",
-          "topicId": "RLn9",
-          "url": "",
-          "voteCount": 0
-        });
       });
     }
   }
