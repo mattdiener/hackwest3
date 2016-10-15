@@ -33,7 +33,7 @@ export default Ember.Controller.extend({
     const model = this.get("model");
     if (model && model.status === 200) {
       this.set('theModel', model);
-      this.set('currentBoardToken', model.token);
+      this.set('currentBoardToken', model.boardId);
     }
   }.observes('model'),
 

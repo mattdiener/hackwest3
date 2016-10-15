@@ -23,22 +23,22 @@ def createBoard():
     id = b58encode(uuid.uuid4().bytes)[:4]
     chatToken = 'hw3_' + b58encode(uuid.uuid4().bytes)[:4]
     topics = []
-    item = {'name':name, 'boardId': id, 'chatToken': chatToken, 'topics': topics}
-    json = jsonify(**item)
+    item = {'name':name, 'boardId': id, 'chatToken': chatToken, 'topics': topics, 'status':200}
+    json = jsonify(**{'status':200,'board':item,'boardId':id})
     mongo.db.boards.insert_one(item)
     return json
 
 @app.route('/boards/<boardId>',methods=['GET','PUT'])
 def handleBoard(boardId):
     if request.method == 'GET':
-        return jsonify(**getBoard(boardId))
+        return jsonify(**{'status':200,'board':getBoard(boardId),'boardId':boardId})
     fields = {}
     if 'name' in request.form:
         fields['name'] = request.form['name']
         print(fields)
     if len(fields) > 0:
         mongo.db.boards.update({'boardId':boardId},{'$set': fields})
-    return jsonify(**getBoard(boardId))
+    return jsonify(**{'status':200,'board':getBoard(boardId),'boardId':boardId})
 
 
 def getBoard(boardId):
@@ -46,6 +46,7 @@ def getBoard(boardId):
     for i in range(len(board['topics'])):
         board['topics'][i] = getBoardTopic(boardId,board['topics'][i])
     del board['_id']
+    board['status'] = 200
     return board
 
 @app.route('/boards/<boardId>/topics',methods=['POST'])
@@ -53,7 +54,7 @@ def createBoardTopic(boardId):
     name = request.form['name']
     id = b58encode(uuid.uuid4().bytes)[:4]
     suggestions = []
-    item = {'name':name,'boardId':boardId,'topicId':id,'suggestions':suggestions}
+    item = {'name':name,'boardId':boardId,'topicId':id,'suggestions':suggestions,'status':200}
     json = jsonify(**item)
     mongo.db.topics.insert_one(item)
     mongo.db.boards.update({'boardId':boardId},{'$push': {'topics':id}})
@@ -75,6 +76,7 @@ def getBoardTopic(boardId,topicId):
     for i in range(len(topic['suggestions'])):
         topic['suggestions'][i] = getTopicSuggestion(boardId,topicId,topic['suggestions'][i])
     del topic['_id']
+    topic['status'] = 200
     return topic
 
 @app.route('/boards/<boardId>/topics/<topicId>/suggestions',methods=['POST'])
@@ -88,7 +90,7 @@ def createTopicSuggestion(boardId,topicId):
     if 'url' in request.form:
         url = request.form['url']
     voteCount = 0
-    item = {'name':name,'boardId':boardId,'topicId':topicId,'suggestionId':id,'description':description,'url':url,'votes':[],'voteCount':voteCount}
+    item = {'name':name,'boardId':boardId,'topicId':topicId,'suggestionId':id,'description':description,'url':url,'votes':[],'voteCount':voteCount,'status':200}
     json = jsonify(**item)
     mongo.db.suggestions.insert_one(item)
     mongo.db.topics.update({'boardId':boardId,'topicId':topicId},{'$push':{'suggestions':id}})
@@ -98,7 +100,7 @@ def createTopicSuggestion(boardId,topicId):
 def getTopicSuggestionJSON(boardId,topicId,suggestionId):
     if request.method == 'GET':
         return jsonify(**getTopicSuggestion(boardId,topicId,suggestionId))
-    fields = {}
+    fields = {'status':200}
     if 'name' in request.form:
         fields['name'] = request.form['name']
     if 'description' in request.form:
@@ -112,6 +114,7 @@ def getTopicSuggestionJSON(boardId,topicId,suggestionId):
 def getTopicSuggestion(boardId,topicId,suggestionId):
     suggestion = mongo.db.suggestions.find_one_or_404({'suggestionId':suggestionId,'topicId':topicId,'boardId': boardId})
     del suggestion['_id']
+    suggestion['status'] = 200
     return suggestion
 
 @app.route('/boards/<boardId>/topics/<topicId>/suggestions/<suggestionId>/vote',methods=['PUT'])
@@ -155,6 +158,10 @@ def handleSuggestionVote(boardId,topicId,suggestionId):
 @app.route('/boards/<boardId>/topics/<topicId>/suggestions/<suggestionId>/poll')
 def pollTopicSuggestion(boardId,topicId,suggestionId):
     return mongo.db.suggestions.find_one_or_404({'suggestionId':suggestionId,'topicId':topicId,'boardId': boardId})['voteCount']
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('index.html');
 
 if __name__ == '__main__':
     app.run()#host='0.0.0.0')
