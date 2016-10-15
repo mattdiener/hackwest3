@@ -1,0 +1,24 @@
+{{!--  This is bad, the css is in /board/view, must move to here some time --}}
+<div class="title">
+  {{topic.name}}
+</div>
+<div class="content" data-id="{{topic.topicId}}">
+  {{#if topic.suggestions}}
+    {{#each topic.suggestions as |suggestion|}}
+        {{board-suggestion suggestion=suggestion}}
+    {{/each}}
+  {{else}}
+      No suggestions found, start by entering one below
+  {{/if}}
+    <div class="add-suggestion">
+        <div class="suggestion-input">
+            <div class="ui input the-suggestion">
+              {{input id='the-suggestion' type="text" placeholder='Enter new suggestion' value=newSuggestion}}
+            </div>
+        </div>
+        <div class="suggestion-add-input">
+            <a {{action 'addSuggestion'}}>
+                <i class="add grey square icon add-suggestion-button"></i></a>
+        </div>
+    </div>
+</div>

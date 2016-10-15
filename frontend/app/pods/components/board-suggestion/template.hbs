@@ -1,0 +1,20 @@
+{{!--  This is bad, the css is in /board/view, must move to here some time --}}
+
+<div class="ui horizontal clearing segment" data-id="{{suggestion.suggestionId}}">
+    <div class="ui suggestion-vote">
+        <div class="ui mini buttons">
+            <button class="ui button">Go</button>
+            <div class="or">
+            </div>
+            <button class="ui button">Not</button>
+        </div>
+    </div>
+    <div class="ui suggestion-ok">
+      {{suggestion.voteCount}} <i class="green check icon"></i>
+    </div>
+    <div class="ui suggestion-name">
+        <p>
+          {{suggestion.name}}
+        </p>
+    </div>
+</div>

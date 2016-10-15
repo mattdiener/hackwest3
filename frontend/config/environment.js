@@ -2,8 +2,8 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'travel',
-    podModulePrefix: 'travel/pods',
+    modulePrefix: 'management',
+    podModulePrefix: 'management/pods',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',

@@ -1,0 +1,40 @@
+{{notification-container position="top-right"}}
+
+<div id="main-board" class="ui middle aligned center aligned grid">
+  {{#if theModel}}
+      <div class="five wide column chat"></div>
+      <div class="six wide column">
+          <h2>{{model.board.name}}</h2>
+          <div class="ui raised segments suggestion">
+              <div class="ui segment">
+                {{#ui-accordion class="styled topics-accordion"}}
+                  {{#each model.board.topics as |topic|}}
+                    {{board-topic topic=topic currentSelectedTopicId=currentSelectedTopicId}}
+                  {{/each}}
+                {{/ui-accordion}}
+              </div>
+              <div class="ui secondary segment">
+                  <div class="add-topic">
+                      <div class="topic-input">
+                          <div class="ui input the-topic">
+                            {{input id='the-topic' type="text" placeholder='Enter new topic' value=newTopic}}
+                          </div>
+                      </div>
+                      <div class="topic-add-input">
+                          <a {{action 'addTopic'}}><i class="add grey square icon add-topic-button"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="five wide column info"></div>
+  {{else}}
+      <div class="five wide column chat"></div>
+      <div class="six wide column">
+          <div class="ui segment">
+              No topics found, are you sure the token you entered was correct?
+          </div>
+      </div>
+      <div class="five wide column info"></div>
+  {{/if}}
+</div>

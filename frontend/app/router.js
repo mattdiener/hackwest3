@@ -11,6 +11,11 @@ Router.map(function() {
   this.route('account', function() {
     this.route('new');
   });
+
+  this.route('board', function() {
+    this.route('new');
+    this.route('view', {path:'view/:token'});
+  });
 });
 
 export default Router;
