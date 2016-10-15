@@ -13,18 +13,21 @@ export default Ember.Controller.extend({
   // }.property('model'),
 
   init() {
+    Ember.$.getScript('/js/embedTlkio.js');
+
     const self = this;
     Ember.$(document).ready(() => {
       const accordion = Ember.$('.topics-accordion').accordion({
         onChange: function () {
-          self.set('currentSelectedTopicId', this.getAttribute('data-id'));
+          self.set('currentSelectedTopicId', self.getAttribute('data-id'));
         }
       });
       if (accordion) {
-        this.set("topicElement", accordion);
+        self.set("topicElement", accordion);
       }
     });
   },
+
 
   initModel: function() {
     const model = this.get("model");
