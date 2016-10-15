@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/frontend/app" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/frontend/addon" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/frontend/public" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/frontend/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/frontend/tests/unit" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/frontend/tests/integration" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/frontend/tests/acceptance" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/tmp" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="node_modules frontend" level="project" />
+    <orderEntry type="library" name="bower_components frontend" level="project" />
+  </component>
+</module>
