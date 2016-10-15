@@ -3,9 +3,24 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 
   notifications: Ember.inject.service('notification-messages'),
-
+  placesURL: 'https://maps.googleapis.com/maps/api/place/autocomplete/json?types=establishment&key=AIzaSyC5FOY5oJRLhMF5OzY2A__zM8gM47MXfYg&input=',
+  placesResults: [],
 
   actions: {
+
+    triggerGooglePrediction() {
+      console.log(this.newSuggestion);
+      const urlEncodedQuery = this.placesURL + encodeURIComponent(this.newSuggestion);
+      const opts = {
+        url: urlEncodedQuery,
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json',
+      };
+      Ember.$.ajax(opts).then((results) => {
+        console.log(results);
+      });
+    },
 
     addSuggestion() {
       console.log(this.currentSelectedTopicId);
