@@ -1,7 +1,7 @@
 {{#if display}}
 
     <div id="google-places" class="ui segments fullscreen">
-        <div class="ui segment">
+        <div class="ui segment" style="height:100%;">
             <div class="top-section">
                 <div class="floated right">
                   {{#if place.types}}
@@ -12,7 +12,7 @@
             <div class="">
                 <iframe
                         width="100%"
-                        height="450"
+                        height="40%"
                         frameborder="0" style="border:0"
                         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC5FOY5oJRLhMF5OzY2A__zM8gM47MXfYg&zoom=15&q=place_id:{{place.place_id}}"
                         allowfullscreen>
@@ -31,35 +31,27 @@
           {{#if place.rating}}
               <div class="place-rating"><i class="star icon"></i>{{place.rating}} / 5</div>
           {{/if}}
-        </div>
-        <div class="ui horizontal segments">
-            <div class="ui segment">
-              {{#if place.reviews}}
+
+          <div class="ui horizontal segments reviews-section-wrapper" style="height:40%;">
+              <div class="ui segment reviews-section">
+                  <h5>Hours</h5>
                   <div class="ui list">
-                    {{#each showReviews as |review|}}
-                        <div class="item">
-                          <i>"{{review.text}}"</i>
-                            <span>-{{review.author_name}}</span>
-                            <span>{{review.rating}} / 5</span>
+                    {{#each place.opening_hours.weekday_text as |hours|}}
+                        <div class="item review-item">
+                          {{hours}}
                         </div>
                     {{/each}}
                   </div>
-              {{/if}}
-            </div>
-            <div class="ui segment">
-                <h5>Hours</h5>
-                <div class="ui list">
-                  {{#each place.opening_hours.weekday_text as |hours|}}
-                      <div class="item">
-                        {{hours}}
-                      </div>
-                  {{/each}}
-                </div>
-            </div>
+              </div>
+              <div class="ui segment reviews-section">
+                {{#if place.url}}
+                    <br><br>
+                    <a target="_blank" href={{place.url}}>Full Details</a>
+                {{/if}}
+              </div>
+          </div>
         </div>
 
     </div>
 
 {{/if}}
-
-

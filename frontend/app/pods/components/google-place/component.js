@@ -31,6 +31,7 @@ export default Ember.Component.extend({
         icon = "<i class='food icon'></i>";
       }
       type = type.charAt(0).toUpperCase() + type.slice(1);
+      type = type.replace(/_/g," ");
       console.log(type + "  + icon");
       return new Ember.Handlebars.SafeString(type + " " + icon);
     }

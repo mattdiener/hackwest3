@@ -8,7 +8,8 @@ export default Ember.Route.extend({
     //
     console.log(params);
     console.log(trans);
-    // return Ember.$.getJSON(url);
+    return Ember.$.getJSON(url);
+    /*
     return {
       token: "kkk",
       status: 200,
@@ -43,6 +44,6 @@ export default Ember.Route.extend({
         }],
         chatToken: "aksh"
       }
-    };
+    };*/
   }
 });
