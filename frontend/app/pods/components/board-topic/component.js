@@ -12,18 +12,18 @@ export default Ember.Component.extend(Ember.Evented, {
     const self = this;
     // self.set('autoCompleteElement', Ember.$('.places-autocomplete'));
     // var k = Ember.$("")
-    console.log((document.getElementById(this.get('uniqueTextBox'))));
+    // console.log((document.getElementById(this.get('uniqueTextBox'))));
     const autocomplete = new google.maps.places.Autocomplete((document.getElementById(this.get('uniqueTextBox'))), {types: ['establishment']});
     // self.set('googleAutocompleter', autocomplete);
     google.maps.event.addListener(autocomplete, 'place_changed', function() {
       const place = autocomplete.getPlace().place_id;
-      console.log(place);
+      // console.log(place);
       self.set('currentPlaceId', place);
       var p = (document.getElementById("places-details"));
-      console.log(p);
+      // console.log(p);
       const placedetail = new google.maps.places.PlacesService((document.getElementById("places-details")));
       placedetail.getDetails({placeId: place}, (result, status) => {
-        console.log(result, status);
+        // console.log(result, status);
         self.sendAction('action', result);
       });
     });
@@ -38,15 +38,15 @@ export default Ember.Component.extend(Ember.Evented, {
     },
 
     addSuggestion() {
-      console.log(this.currentSelectedTopicId);
-      console.log(this.newSuggestion);
+      // console.log(this.currentSelectedTopicId);
+      // console.log(this.newSuggestion);
       const boardId = this.get("topic.boardId");
       const topicId = this.get('topic.topicId');
       const placeId = this.get('currentPlaceId');
       // this.set("newSuggestion", Ember.$("#the-suggestion").text());
-      console.log(this.newSuggestion, boardId);
+      // console.log(this.newSuggestion, boardId);
       if (!boardId || !topicId || !this.newSuggestion) {
-        console.log('hi')
+        // console.log('hi')
         return;
       }
 
@@ -75,7 +75,7 @@ export default Ember.Component.extend(Ember.Evented, {
           autoClear: true,
           clearDuration: 1200
         });
-        console.log(this.get('topic.suggestions'));
+        // console.log(this.get('topic.suggestions'));
       });
     }
   }

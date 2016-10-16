@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
   classNames: ["fullscreen"],
 
   init() {
-    console.log(this.session);
+    // console.log(this.session);
   },
 
   actions: {

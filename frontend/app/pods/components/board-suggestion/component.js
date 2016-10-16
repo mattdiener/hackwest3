@@ -5,9 +5,12 @@ export default Ember.Component.extend( {
   suggestionId: Ember.computed('suggestion', () => { return this.get('suggestion.suggestionId'); }),
   disableYes: false,
   disableNo: false,
-  userId: Ember.computed('suggestion.boardId', () => { return JSON.parse(localStorage.boardUsers)[this.get('suggestion.boardId')]; }),
+  userId: '',
+  uniqueKey: null,
 
   didInsertElement() {
+    this.set('userId', JSON.parse(localStorage.boardUsers)[this.get('suggestion.boardId')]);
+    this.set('uniqueKey', "vote_" + this.get('suggestion.suggestionId'));
     const voters = this.get('suggestion.votes');
     if (voters) {
       for (let i = 0; i < voters.length; i++) {
@@ -22,7 +25,7 @@ export default Ember.Component.extend( {
   willRender() {
     const votedForThis = localStorage[this.get('suggestion.suggestionId')];
     if (votedForThis) {
-      console.log("found voted for this ", votedForThis);
+      // console.log("found voted for this ", votedForThis);
       if (votedForThis === "1") {
         // true case
         this.set("disableYes", true);
@@ -69,7 +72,7 @@ export default Ember.Component.extend( {
         // Add this new topic into
         localStorage[this.get('suggestion.suggestionId')] = yes ? 1 : 0;
         self.set("suggestion.voteCount", result.voteCount);
-        console.log(result.voteCount);
+        // console.log(result.voteCount);
         this.willRender()
       }, (xhr) => {
         this.get('notifications').error('Error voting!', {

@@ -7,9 +7,9 @@ export default Ember.Component.extend({
     if (!this.get('place') || !this.get('place.photos')) {
       return;
     }
-    console.log(this.get('place.photos'));
+    // console.log(this.get('place.photos'));
     return this.get('place.photos').map(function(photo){
-      console.log(Ember.$(photo.html_attributions[0]).attr('href'));
+      // console.log(Ember.$(photo.html_attributions[0]).attr('href'));
       return {
         'url':  Ember.$(photo.html_attributions[0]).attr('href')
       };
@@ -32,7 +32,7 @@ export default Ember.Component.extend({
       }
       type = type.charAt(0).toUpperCase() + type.slice(1);
       type = type.replace(/_/g," ");
-      console.log(type + "  + icon");
+      // console.log(type + "  + icon");
       return new Ember.Handlebars.SafeString(type + " " + icon);
     }
     return false;
@@ -41,7 +41,7 @@ export default Ember.Component.extend({
   showReviews: function() {
     const place = this.get('place');
     if (place && place.reviews) {
-      console.log(place.reviews);
+      // console.log(place.reviews);
       let reviewOne = place.reviews[0];
       let reviewTwo;
       let reviews = [reviewOne];
