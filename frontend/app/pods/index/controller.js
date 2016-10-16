@@ -2,9 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	boardToken : null,
+	boardName : null,
+	
 	boardURI: Ember.computed('boardToken',function() {
 		return "board/view/"+this.get('boardToken');
 	}),
+	
   init() {
     Ember.$(document)
       .ready(() => {
@@ -47,11 +50,12 @@ export default Ember.Controller.extend({
 		
 		createBoard() {
 			const urlToPost = "/boards";
+			const token = this.get('boardName');
 			const opts = {
 				url: urlToPost,
 				type: 'POST',
 				contentType: 'application/json',
-				data: JSON.stringify({name:"cheryl"})
+				data: JSON.stringify({name:name})
 			};
 			const self = this;
 			Ember.$.ajax(opts).then((results) => {

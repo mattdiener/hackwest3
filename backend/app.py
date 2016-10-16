@@ -19,7 +19,7 @@ def index():
 
 @app.route('/boards',methods=['POST'])
 def createBoard():
-    data = request.get_data()
+    data = request.get_json();
     name = data['name']
     id = b58encode(uuid.uuid4().bytes)[:4]
     chatToken = 'hw3_' + b58encode(uuid.uuid4().bytes)[:4]

@@ -1,10 +1,12 @@
 <!-- Page Contents -->
 <div class="pusher">
 	<div class="ui vertical masthead center aligned segment">
+	
+	<div class="ui vertical masthead center aligned segment">
 		<div class="ui 2 column row  grid">
 			<div class="ui black inverted four wide column">
 				<div class="ui container">
-				<h1 class="ui inverted header">	
+				<h1 class="ui inverted header">
 					<img src="/images/plane.png" class="ui small image">
 					<br>
 					GetOut.site
@@ -12,35 +14,32 @@
 				</div>
 				<div class="ui blue inverted stacked two wide segment">
 					<div classe = "ui container">
-					<div class="ui left icon input">
-						{{input type="text" name="token" placeholder="token" value=boardToken}}
-						<i class = "user icon"></i>
+						<div class="ui left icon input">
+							{{input type="text" name="token" placeholder="token" value=boardToken}}
+							<i class = "user icon"></i>
+						</div>
+						<a class="ui button" href='{{boardURI}}' >Login</a>
+						<br>
+						or
+						<br>
+						<div class="ui left icon input">
+							{{input type="text" name="name" placeholder="Name" value = boardName}}
+							<i class = "user icon"></i>
+						</div>
+							<button class="ui button" {{action 'createBoard'}}>Create</button>
+							
 					</div>
-						<a class="ui button" href='{{boardURI}}' >Login</a>				
-					<br>
-					
-					<button class="ui compact message "{{action 'createBoard' }}>
-						Create New
-					</button>
-					</div>
-				</div>			
+				</div>
 			</div>
-					
-	<div class="ui twelve wide column">
-	<div class =" ui segement">
-		<h1 class = "ui  header">We Help Organize Your Travel Plans </h1>
-		<h2 class = "ui blue header">GetOut.site offers travellers a way to easily communicate, share events and plan</h2>
-		<h1 class = "ui  header">We Make Disscusion easier</h1>
-		<h2 class = "ui blue header">The votte feature allows users to vote about events, accomadations, restaurants and more</h2>
+			<div class="ui inverted twelve wide column">
+				<div class =" ui segement">
+					<h1 class = "ui  header">We Help Organize Your Travel Plans </h1>
+					<h2 class = "ui blue header">GetOut.site offers travellers a way to easily communicate, share events and plan</h2>
+					<h1 class = "ui  header">We Make Disscusion easier</h1>
+					<h2 class = "ui blue header">The votte feature allows users to vote about events, accomadations, restaurants and more</h2>
+				</div>
+			</div>
+		</div>
 	</div>
-	</div>
 </div>
 </div>
-</div>
-	
-
-
-
-	
-	
-
