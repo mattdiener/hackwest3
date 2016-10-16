@@ -1,7 +1,7 @@
 <!-- Page Contents -->
 <div class="pusher">
 	<div class="ui inverted vertical masthead center aligned segment">
-	
+
 	<div class="ui vertical masthead center aligned segment">
 		<div class="ui 2 column row  grid">
 			<div class="ui black inverted four wide column">
@@ -13,26 +13,26 @@
 				</h1>
 				</div>
 				<div class="ui blue inverted stacked two wide segment">
-		
+
 						<div class="ui left icon input">
-							{{input type="text" name="token" placeholder="token" value=boardToken}}
-							<i class = "user icon"></i>
+							{{input type="text" name="token" placeholder="Enter Token" value=boardToken}}
+							<i class = "diamond icon"></i>
 						</div>
 						<a class="ui button" href='{{boardURI}}' >Login</a>
 						<br>
 						or
 						<br>
 						<div class="ui left icon input">
-							{{input type="text" name="name" placeholder="Name" value = boardName}}
+							{{input type="text" name="name" placeholder="Name of Trip" value = boardName}}
 							<i class = "user icon"></i>
 						</div>
-							<button class="ui button" {{action 'createBoard'}}>Create</button>
-							
+							<button class="ui button" {{action 'createBoard'}}>Create Planning Board</button>
+
 					</div>
 				</div>
-			
+
 			<div class="ui inverted twelve wide column">
-				
+
 				<div class =" ui Vertical segement">
 					<div class = " ui segment">
 					<img class="ui fluid image" src="/images/images.png">
@@ -49,4 +49,3 @@
 		</div>
 	</div>
 </div>
-
