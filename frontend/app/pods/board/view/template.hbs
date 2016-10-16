@@ -1,65 +1,72 @@
 {{notification-container position="top-right"}}
 
 <div id="main-board" class="full height">
-  <div class="ui" id="boxything">
-  {{#if theModel}}
-    <div class="ui container" id="menu-container">
-      <div class="ui secondary menu" id="top-menu">
-        <div class="item" id="board-title">
-        <p class="ui form pseudo-h2">
-            {{ember-inline-edit
-              class="field"
-              value=model.board.name
-              onClose=(action "changeValue" model.board.name)}}
-        </p>
-        </div>
-      </div>
-    </div>
-    <div class="ui equal height grid" id="main-ui">
-      <div class="three column row">
-
-      <div class="five wide column chat full-height">
-        <div id="tlkio-cover">Chat</div>
-        {{!--todo: username--}}
-        <div id="tlkio" data-channel="{{model.board.chatToken}}" data-nickname="Matt" style="width:100%;height:100%;"></div>
-        {{!-- <script async src="http://tlk.io/embed.js" type="text/javascript"></script> --}}
-      </div>
-      <div class="six wide column full-height">
-          <div class="ui raised segments suggestion full-height">
-              <div class="ui segment" id="topic-view">
-                {{#ui-accordion class="styled topics-accordion"}}
-                  {{#each model.board.topics as |topic|}}
-                    {{board-topic topic=topic}}
-                  {{/each}}
-                {{/ui-accordion}}
+    <div class="ui" id="boxything">
+      {{#if theModel}}
+          <div class="ui container" id="menu-container">
+              <div class="ui secondary menu" id="top-menu">
+                  <div class="item" id="board-title">
+                      <p class="ui form pseudo-h2">
+                        {{ember-inline-edit
+                        class="field"
+                        value=model.board.name
+                        onClose=(action "changeValue" model.board.name)}}
+                      </p>
+                  </div>
               </div>
-              <div class="ui secondary segment" id="topic-input">
-                  <div class="add-topic">
-                      <div class="topic-input">
-                          <div class="ui input the-topic">
-                            {{input id='the-topic' type="text" placeholder='Enter new topic' value=newTopic}}
+          </div>
+          <div class="ui equal height grid" id="main-ui">
+              <div class="three column row">
+
+                  <div class="five wide column chat full-height">
+                      <div id="tlkio-cover">Chat</div>
+                    {{!--todo: username--}}
+                      <div id="tlkio" data-channel="{{model.board.chatToken}}" data-nickname="Matt"
+                           style="width:100%;height:100%;"></div>
+                    {{!-- <script async src="http://tlk.io/embed.js" type="text/javascript"></script> --}}
+                  </div>
+                  <div class="six wide column full-height">
+                      <div class="ui raised segments suggestion full-height">
+                          <div class="ui segment" id="topic-view">
+                            {{#ui-accordion class="styled topics-accordion"}}
+                              {{#each model.board.topics as |topic|}}
+                                {{board-topic topic=topic action='launchPlaceDetail'}}
+                              {{/each}}
+                            {{/ui-accordion}}
+                          </div>
+                          <div class="ui secondary segment" id="topic-input">
+                              <div class="add-topic">
+                                  <div class="topic-input">
+                                      <div class="ui input the-topic">
+                                        {{input id='the-topic' type="text" placeholder='Enter new topic' value=newTopic}}
+                                      </div>
+                                  </div>
+                                  <div class="topic-add-input">
+                                      <button class="ui button add-button" onclick={{action 'addTopic'}}>
+                                          <i class="plus icon"></i></button>
+                                  </div>
+                              </div>
                           </div>
                       </div>
-                      <div class="topic-add-input">
-                          <button class="ui button add-button" onclick={{action 'addTopic'}}>
-                              <i class="plus icon"></i></button>
+                  </div>
+                  <div class="five wide column info">
+                      <div id="places-details">
+                      </div>
+                      <div class="rightDetailPanel">
+                        {{google-place place=currentPlaceDetail display=showRightPanel}}
                       </div>
                   </div>
               </div>
           </div>
-      </div>
-      <div class="five wide column info"></div>
-    </div>
-    </div>
-
-  {{else}}
-      <div class="five wide column chat"></div>
-      <div class="six wide column">
-          <div class="ui segment">
-              No topics found, are you sure the token you entered was correct?
+      {{else}}
+          <div class="five wide column chat"></div>
+          <div class="six wide column">
+              <div class="ui segment">
+                  No topics found, are you sure the token you entered was correct?
+              </div>
           </div>
-      </div>
-      <div class="five wide column info"></div>
-  {{/if}}
-</div>
+          <div class="five wide column info">
+          </div>
+      {{/if}}
+    </div>
 </div>

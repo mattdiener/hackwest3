@@ -8,6 +8,8 @@ export default Ember.Controller.extend({
   currentSelectedTopicId: null,
   newSuggestion: null,
   currentBoardToken: null,
+  currentPlaceDetail: null,
+  showRightPanel: false,
 
   init() {
     Ember.$.getScript('/js/embedTlkio.js');
@@ -25,7 +27,6 @@ export default Ember.Controller.extend({
     });
   },
 
-
   initModel: function() {
     const model = this.get("model");
     if (model && model.status === 200) {
@@ -36,6 +37,13 @@ export default Ember.Controller.extend({
   }.observes('model'),
 
   actions: {
+
+    launchPlaceDetail(detail) {
+      console.log(detail);
+      this.set('showRightPanel', true);
+      this.set('currentPlaceDetail', detail);
+    },
+
     changeValue (val) {
       if (val === "") {
         console.log("what the fk");
@@ -61,8 +69,6 @@ export default Ember.Controller.extend({
           autoClear: true,
           clearDuration: 1200
         });
-        // TODO: remove this
-
       });
     },
 

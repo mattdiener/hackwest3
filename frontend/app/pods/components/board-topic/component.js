@@ -1,25 +1,40 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend(Ember.Evented, {
 
   notifications: Ember.inject.service('notification-messages'),
-  placesURL: 'https://maps.googleapis.com/maps/api/place/autocomplete/json?types=establishment&key=AIzaSyC5FOY5oJRLhMF5OzY2A__zM8gM47MXfYg&input=',
-  placesResults: [],
+  uniqueTextBox: function() {
+    return "places-autcomplete"+"_"+this.get('topic.topicId');
+  }.property('topic'),
+  currentPlaceId: null,
+
+  didInsertElement: function(){
+    const self = this;
+    // self.set('autoCompleteElement', Ember.$('.places-autocomplete'));
+    // var k = Ember.$("")
+    console.log((document.getElementById(this.get('uniqueTextBox'))));
+    const autocomplete = new google.maps.places.Autocomplete((document.getElementById(this.get('uniqueTextBox'))), {types: ['establishment']});
+    // self.set('googleAutocompleter', autocomplete);
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+      const place = autocomplete.getPlace().place_id;
+      console.log(place);
+      self.set('currentPlaceId', place);
+      var p = (document.getElementById("places-details"));
+      console.log(p);
+      const placedetail = new google.maps.places.PlacesService((document.getElementById("places-details")));
+      placedetail.getDetails({placeId: place}, (result, status) => {
+        console.log(result, status);
+        self.sendAction('action', result);
+      });
+    });
+    // });
+  },
 
   actions: {
 
-    triggerGooglePrediction() {
-      console.log(this.newSuggestion);
-      const urlEncodedQuery = this.placesURL + encodeURIComponent(this.newSuggestion);
-      const opts = {
-        url: urlEncodedQuery,
-        type: 'GET',
-        dataType: 'json',
-        contentType: 'application/json',
-      };
-      Ember.$.ajax(opts).then((results) => {
-        console.log(results);
-      });
+    launchPlaceDetail(param) {
+      // propogate event up to controller
+      this.sendAction('action', param);
     },
 
     addSuggestion() {
@@ -27,6 +42,7 @@ export default Ember.Component.extend({
       console.log(this.newSuggestion);
       const boardId = this.get("topic.boardId");
       const topicId = this.get('topic.topicId');
+      const placeId = this.get('currentPlaceId');
       // this.set("newSuggestion", Ember.$("#the-suggestion").text());
       console.log(this.newSuggestion, boardId);
       if (!boardId || !topicId || !this.newSuggestion) {
@@ -41,7 +57,7 @@ export default Ember.Component.extend({
         type: 'POST',
         // dataType: 'json',
         contentType: 'application/json',
-        data: JSON.stringify({name: this.newSuggestion})
+        data: JSON.stringify({name: this.newSuggestion, placeId: placeId})
       };
 
       const self = this;

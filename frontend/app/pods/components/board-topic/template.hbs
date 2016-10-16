@@ -5,7 +5,7 @@
 <div class="content" data-id="{{topic.topicId}}">
   {{#if topic.suggestions}}
     {{#each topic.suggestions as |suggestion|}}
-        {{board-suggestion suggestion=suggestion}}
+        {{board-suggestion action=action suggestion=suggestion}}
     {{/each}}
   {{else}}
       No suggestions found, start by entering one below
@@ -13,7 +13,7 @@
     <div class="add-suggestion">
         <div class="suggestion-input">
             <div class="ui input the-suggestion">
-              {{input type="text" placeholder='Enter new suggestion' key-up='triggerGooglePrediction'  value=newSuggestion}}
+              {{input type="text" id=uniqueTextBox placeholder='Enter new suggestion'  value=newSuggestion}}
             </div>
         </div>
         <div class="suggestion-add-input">

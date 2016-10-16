@@ -34,6 +34,7 @@
     "ember-cli-notifications": "4.0.9",
     "ember-cli-qunit": "^2.1.0",
     "ember-cli-release": "^0.2.9",
+    "ember-cli-slick": "1.0.14",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-test-loader": "^1.1.0",
     "ember-cli-uglify": "^1.2.0",

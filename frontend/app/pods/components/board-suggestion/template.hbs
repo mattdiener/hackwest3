@@ -1,6 +1,6 @@
 {{!--  This is bad, the css is in /board/view, must move to here some time --}}
 
-<div class="ui horizontal clearing segment" data-id="{{suggestion.suggestionId}}">
+<div class="ui horizontal clearing segment" data-id="{{suggestion.suggestionId}}" {{action 'loadPlaceDetails' suggestion.placeId}}>
     <div class="ui suggestion-vote">
       <div class="ui vertical buttons">
       <button class="ui button suggestion-button suggestion-up" {{action 'vote' true}} disabled={{disableYes}}><i class="arrow up icon"></i></button>

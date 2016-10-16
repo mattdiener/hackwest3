@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend( {
   notifications: Ember.inject.service('notification-messages'),
   suggestionId: Ember.computed('suggestion', () => { return this.get('suggestion.suggestionId'); }),
   disableYes: false,
@@ -35,6 +35,16 @@ export default Ember.Component.extend({
   },
 
   actions: {
+    loadPlaceDetails(placeId) {
+      const placedetail = new google.maps.places.PlacesService((document.getElementById("places-details")));
+      const self = this;
+      placedetail.getDetails({placeId: placeId}, (result, status) => {
+        // Propoate this up to controller
+          self.sendAction('action', result);
+      });
+      // this.sendAction('action', 'poop');
+    },
+
     vote(yes) {
 
       const urlToPut = "/boards/"+this.get('suggestion.boardId')+"/topics/"+this.get('suggestion.topicId') +
