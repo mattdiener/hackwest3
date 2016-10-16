@@ -25,26 +25,26 @@ export default Ember.Controller.extend({
 				action: ' sign in',
 				on: 'onclick'
 				});
-				
-		
+
+
         // create sidebar and attach to menu open
         Ember.$('.ui.sidebar')
           .sidebar('attach events', '.toc.item');
 	  });
   },
-  
-  
+
+
 	// Get Token?
 	session: Ember.inject.service('session'),
 	actions:{
-		
+
 		goToBoard() {
 			const token = this.get('boardToken');
 			if (token) {
 				this.send('goToBoardRoute', token);
 			}
 		},
-		
+
 		createBoard() {
 			const urlToPost = "/boards";
 			const opts = {
@@ -55,8 +55,8 @@ export default Ember.Controller.extend({
 			};
 			const self = this;
 			Ember.$.ajax(opts).then((results) => {
-				this.transitionToRout('board/view/'+ results.board.boardId);
-				
+				this.transitionToRoute('board.view', results.board.boardId);
+
 			});
 		}
 	}
