@@ -65,7 +65,7 @@ export default Ember.Controller.extend({
         });
         self.set('model.name', result.board.name);
       }, (xhr) => {
-        this.get('notifications').error('Error chanign topic!', {
+        this.get('notifications').error('Error changing topic!', {
           autoClear: true,
           clearDuration: 1200
         });
