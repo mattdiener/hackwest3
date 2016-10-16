@@ -8,6 +8,7 @@ export default Ember.Controller.extend({
 		return "board/view/"+this.get('boardToken');
 	}),
 	
+	
   init() {
     Ember.$(document)
       .ready(() => {
@@ -64,4 +65,13 @@ export default Ember.Controller.extend({
 			});
 		}
 	}
+	
+	
+	
+	/* UI 
+	$('.ui.sticky')
+	  .sticky({
+		context: '#login'
+	  })*/
+
 });
