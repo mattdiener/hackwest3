@@ -60,6 +60,7 @@ export default Ember.Route.extend({
       }
     };*/
   },
+  /*
   afterModel: function (model, transition) {
     this.get('poll').setup({
       name: 'boardPoll', // a poll name should be unique
@@ -73,4 +74,5 @@ export default Ember.Route.extend({
       this.get('poll').removePoll('boardPoll'); // remove the resource from polling
     },
   }
+  */
 });

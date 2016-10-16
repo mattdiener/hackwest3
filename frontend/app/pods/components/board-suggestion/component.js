@@ -5,9 +5,12 @@ export default Ember.Component.extend( {
   suggestionId: Ember.computed('suggestion', () => { return this.get('suggestion.suggestionId'); }),
   disableYes: false,
   disableNo: false,
-  userId: Ember.computed('suggestion.boardId', () => { return JSON.parse(localStorage.boardUsers)[this.get('suggestion.boardId')]; }),
+  userId: '',
+  uniqueKey: null,
 
   didInsertElement() {
+    this.set('userId', JSON.parse(localStorage.boardUsers)[this.get('suggestion.boardId')]);
+    this.set('uniqueKey', "vote_" + this.get('suggestion.suggestionId'));
     const voters = this.get('suggestion.votes');
     if (voters) {
       for (let i = 0; i < voters.length; i++) {
