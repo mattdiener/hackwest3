@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e50fcde7-649c-4bf5-a799-53ed3446a8be" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/app/pods/board/view/controller.js" afterPath="$PROJECT_DIR$/frontend/app/pods/board/view/controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/app/pods/board/view/template.hbs" afterPath="$PROJECT_DIR$/frontend/app/pods/board/view/template.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/app/pods/board/view/route.js" afterPath="$PROJECT_DIR$/frontend/app/pods/board/view/route.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/app/pods/components/google-place/component.js" afterPath="$PROJECT_DIR$/frontend/app/pods/components/google-place/component.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/app/pods/components/google-place/template.hbs" afterPath="$PROJECT_DIR$/frontend/app/pods/components/google-place/template.hbs" />
     </list>
     <ignored path="hackwest3.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,8 +31,11 @@
             <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/view/controller.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="272">
-                  <caret line="67" column="52" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
-                  <folding />
+                  <caret line="70" column="52" selection-start-line="70" selection-start-column="52" selection-end-line="70" selection-end-column="52" />
+                  <folding>
+                    <marker date="1476604061176" expanded="true" signature="1075:1083" ph="{...}" />
+                    <marker date="1476604061176" expanded="true" signature="1075:1087" ph="{...}" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -43,7 +44,7 @@
             <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/view/template.hbs">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="459">
-                  <caret line="54" column="61" selection-start-line="54" selection-start-column="61" selection-end-line="54" selection-end-column="61" />
+                  <caret line="60" column="61" selection-start-line="60" selection-start-column="61" selection-end-line="60" selection-end-column="61" />
                   <folding>
                     <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                   </folding>
@@ -54,10 +55,12 @@
           <file leaf-file-name="template.hbs" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/frontend/app/pods/components/google-place/template.hbs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="476">
-                  <caret line="41" column="55" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
+                <state relative-caret-position="391">
+                  <caret line="39" column="54" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
                   <folding>
+                    <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#iframe#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#6;n#div#0;n#div#0;n#!!top" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -67,7 +70,7 @@
             <entry file="file://$PROJECT_DIR$/frontend/app/pods/components/google-place/component.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="663">
-                  <caret line="74" column="14" selection-start-line="74" selection-start-column="14" selection-end-line="74" selection-end-column="14" />
+                  <caret line="54" column="14" selection-start-line="54" selection-start-column="14" selection-end-line="54" selection-end-column="14" />
                   <folding />
                 </state>
               </provider>
@@ -77,11 +80,41 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="component.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="component.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/app/pods/components/google-place/component.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="663">
-                  <caret line="74" column="14" selection-start-line="74" selection-start-column="14" selection-end-line="74" selection-end-column="14" />
+                <state relative-caret-position="408">
+                  <caret line="50" column="7" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="route.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/new/route.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="template.hbs" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/new/template.hbs">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="route.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/view/route.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="408">
+                  <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
                   <folding />
                 </state>
               </provider>
@@ -118,7 +151,6 @@
         <option value="$PROJECT_DIR$/frontend/app/pods/board/styles.less" />
         <option value="$PROJECT_DIR$/frontend/app/pods/board/template.hbs" />
         <option value="$PROJECT_DIR$/frontend/app/pods/board/view/styles.less" />
-        <option value="$PROJECT_DIR$/frontend/app/pods/board/view/route.js" />
         <option value="$PROJECT_DIR$/frontend/config/environment.js" />
         <option value="$PROJECT_DIR$/frontend/app/index.html" />
         <option value="$PROJECT_DIR$/frontend/app/pods/components/board-suggestion/template.hbs" />
@@ -129,8 +161,9 @@
         <option value="$PROJECT_DIR$/frontend/app/pods/components/google-place/styles.less" />
         <option value="$PROJECT_DIR$/frontend/app/pods/board/view/controller.js" />
         <option value="$PROJECT_DIR$/frontend/app/pods/board/view/template.hbs" />
-        <option value="$PROJECT_DIR$/frontend/app/pods/components/google-place/component.js" />
         <option value="$PROJECT_DIR$/frontend/app/pods/components/google-place/template.hbs" />
+        <option value="$PROJECT_DIR$/frontend/app/pods/components/google-place/component.js" />
+        <option value="$PROJECT_DIR$/frontend/app/pods/board/view/route.js" />
       </list>
     </option>
   </component>
@@ -248,6 +281,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hackwest3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hackwest3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pods" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -468,28 +523,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hackwest3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hackwest3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pods" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -984,12 +1017,12 @@
       <workItem from="1476510148549" duration="458000" />
       <workItem from="1476510636695" duration="10000" />
       <workItem from="1476510663330" duration="37503000" />
-      <workItem from="1476564963638" duration="26187000" />
+      <workItem from="1476564963638" duration="27578000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64158000" />
+    <option name="totallyTimeSpent" value="65549000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -1214,24 +1247,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/new/route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/app/router.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/new/template.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1277,6 +1296,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#70#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1323,14 +1345,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="73" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="112" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/view/route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -1394,36 +1408,65 @@
     <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/view/controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="67" column="52" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
-          <folding />
+          <caret line="70" column="52" selection-start-line="70" selection-start-column="52" selection-end-line="70" selection-end-column="52" />
+          <folding>
+            <marker date="1476604061176" expanded="true" signature="1075:1083" ph="{...}" />
+            <marker date="1476604061176" expanded="true" signature="1075:1087" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/view/template.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
-          <caret line="54" column="61" selection-start-line="54" selection-start-column="61" selection-end-line="54" selection-end-column="61" />
+          <caret line="60" column="61" selection-start-line="60" selection-start-column="61" selection-end-line="60" selection-end-column="61" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/app/pods/components/google-place/template.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="39" column="54" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#iframe#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#6;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/app/pods/components/google-place/component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="74" column="14" selection-start-line="74" selection-start-column="14" selection-end-line="74" selection-end-column="14" />
+        <state relative-caret-position="408">
+          <caret line="50" column="7" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/app/pods/components/google-place/template.hbs">
+    <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/new/route.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="41" column="55" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
-          <folding>
-            <element signature="n#style#0;n#iframe#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/new/template.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/app/pods/board/view/route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>

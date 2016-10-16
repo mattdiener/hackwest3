@@ -49,28 +49,6 @@ export default Ember.Component.extend({
         reviewTwo = place.reviews[1];
         reviews.push(reviewTwo);
       }
-
-      /*
-       author_name
-       :
-       "Doug Duff"
-       author_url
-       :
-       "https://plus.google.com/107480293481886293344"
-       language
-       :
-       "en"
-       rating
-       :
-       5
-       text
-       :
-       "The Big Rig no one knows about. Only knock on this place is the lack of vegetarian options. Although I do understand that lunch isn't their main deal. Will keep coming back. "
-       time
-       :
-       1469064301
-
-       */
       return reviews;
     }
     return [];
