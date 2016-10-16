@@ -12,7 +12,7 @@ Router.map(function() {
     this.route('new');
   });
 
-  this.route('board', function() {
+  this.resource('board', function() {
     this.route('new');
     this.route('view', {path:'view/:token'});
   });

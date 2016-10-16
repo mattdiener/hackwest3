@@ -19,7 +19,7 @@ def index():
 
 @app.route('/boards',methods=['POST'])
 def createBoard():
-    data = request.get_data()
+    data = request.get_json();
     name = data['name']
     id = b58encode(uuid.uuid4().bytes)[:4]
     chatToken = 'hw3_' + b58encode(uuid.uuid4().bytes)[:4]
@@ -94,10 +94,13 @@ def createTopicSuggestion(boardId,topicId):
     if 'description' in data:
         description = data['description']
     url = ''
+    placeId = ''
     if 'url' in data:
         url = data['url']
+    if 'placeId' in data:
+        placeId = data['placeId']
     voteCount = 0
-    item = {'name':name,'boardId':boardId,'topicId':topicId,'suggestionId':id,'description':description,'url':url,'votes':[],'voteCount':voteCount,'status':200}
+    item = {'placeId':placeId,'name':name,'boardId':boardId,'topicId':topicId,'suggestionId':id,'description':description,'url':url,'votes':[],'voteCount':voteCount,'status':200}
     json = jsonify(**item)
     mongo.db.suggestions.insert_one(item)
     mongo.db.topics.update({'boardId':boardId,'topicId':topicId},{'$push':{'suggestions':id}})
@@ -115,6 +118,8 @@ def getTopicSuggestionJSON(boardId,topicId,suggestionId):
         fields['description'] = data['description']
     if 'url' in data:
         fields['url'] = data['url']
+    if 'placeId' in data:
+        fields['placeId'] = data['placeId']
     if len(fields) > 0:
         mongo.db.suggestions.update({'boardId':boardId,'topicId':topicId,'suggestionId':suggestionId},{'$set': fields})
     return jsonify(**getTopicSuggestion(boardId,topicId,suggestionId))
