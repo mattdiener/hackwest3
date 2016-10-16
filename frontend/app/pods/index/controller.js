@@ -55,7 +55,7 @@ export default Ember.Controller.extend({
 			};
 			const self = this;
 			Ember.$.ajax(opts).then((results) => {
-				this.transitionToRout('board/view/'+ results.board.boardId);
+				this.transitionToRoute('board.view',  results.board.boardId);
 				
 			});
 		}
