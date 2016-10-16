@@ -15,18 +15,18 @@
                     <div class="ui blue inverted stacked two wide segment">
 
                         <div class="ui left icon input">
-                          {{input type="text" name="token" placeholder="token" value=boardToken}}
-                            <i class="user icon"></i>
+                          {{input type="text" name="token" class="longer" placeholder="Enter Token" value=boardToken}}
+                            <i class = "diamond icon"></i>
                         </div>
-                        <a class="ui button" href='{{boardURI}}'>Login</a>
+                        <a class="ui button" href='{{boardURI}}' >Login</a>
                         <br>
                         or
                         <br>
                         <div class="ui left icon input">
-                          {{input type="text" name="name" placeholder="Name" value = boardName}}
-                            <i class="user icon"></i>
+                          {{input type="text" name="name" placeholder="Name of Trip" value = boardName}}
+                            <i class = "user icon"></i>
                         </div>
-                        <button class="ui button" {{action 'createBoard'}}>Create</button>
+                        <button class="ui button" {{action 'createBoard'}}>Create Planning Board</button>
 
                     </div>
                 </div>
