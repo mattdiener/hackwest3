@@ -4,9 +4,11 @@
 </div>
 <div class="content" data-id="{{topic.topicId}}">
   {{#if topic.suggestions}}
+    <div class="ui segments">
     {{#each topic.suggestions as |suggestion|}}
         {{board-suggestion action=action suggestion=suggestion}}
     {{/each}}
+    </div>
   {{else}}
       No suggestions found, start by entering one below
   {{/if}}
@@ -18,7 +20,7 @@
         </div>
         <div class="suggestion-add-input">
             <button class="ui button add-button" onclick={{action 'addSuggestion'}}>
-                <i class="plus icon"></i></button>
+                <i class="tweak-arrows plus icon"></i></button>
         </div>
     </div>
 </div>

@@ -1,52 +1,59 @@
 <!-- Page Contents -->
-<div class="pusher">
-	<div class="ui inverted vertical masthead center aligned segment">
-	
-	<div class="ui vertical masthead center aligned segment">
-		<div class="ui 2 column row  grid">
-			<div class="ui black inverted four wide column">
-				<div class="ui container">
-				<h1 class="ui inverted header">
-					<img src="/images/plane.png" class="ui small image">
-					<br>
-					GetOut.site
-				</h1>
-				</div>
-				<div class="ui blue inverted stacked two wide segment">
-		
-						<div class="ui left icon input">
-							{{input type="text" name="token" placeholder="token" value=boardToken}}
-							<i class = "user icon"></i>
-						</div>
-						<a class="ui button" href='{{boardURI}}' >Login</a>
-						<br>
-						or
-						<br>
-						<div class="ui left icon input">
-							{{input type="text" name="name" placeholder="Name" value = boardName}}
-							<i class = "user icon"></i>
-						</div>
-							<button class="ui button" {{action 'createBoard'}}>Create</button>
-							
-					</div>
-				</div>
-			
-			<div class="ui inverted twelve wide column">
-				
-				<div class =" ui Vertical segement">
-					<div class = " ui segment">
-					<img class="ui fluid image" src="/images/images.png">
-					</div>
-					<div class = " ui  top segment">
-					<h1 class = "ui blue  header"> Organize Your Travel Plans </h1>
-					<h2> GetOut.site offers travellers a way to easily communicate, share events and plan</h2>
-					<h1 class = "ui blue  header">Easy Communication</h1>
-					<h2> The votte feature allows users to vote about events, accomadations, restaurants and more</h2>
-				</div>
-				</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="pusher fullscreen">
+    <div class="ui inverted vertical masthead center aligned segment fullscreen">
+
+        <div class="ui vertical masthead center aligned segment fullscreen">
+            <div class="indexWrapper ui 2 column row  grid">
+                <div class="ui black inverted five wide column">
+                    <div class="ui container">
+                        <h1 class="ui inverted header">
+                            <img src="/images/plane.png" class="ui small image">
+                            <br>
+                            GetOut.site
+                        </h1>
+                    </div>
+                    <div class="ui blue inverted stacked two wide segment">
+
+                        <div class="ui left icon input">
+                          {{input type="text" name="token" placeholder="token" value=boardToken}}
+                            <i class="user icon"></i>
+                        </div>
+                        <a class="ui button" href='{{boardURI}}'>Login</a>
+                        <br>
+                        or
+                        <br>
+                        <div class="ui left icon input">
+                          {{input type="text" name="name" placeholder="Name" value = boardName}}
+                            <i class="user icon"></i>
+                        </div>
+                        <button class="ui button" {{action 'createBoard'}}>Create</button>
+
+                    </div>
+                </div>
+
+                <div class="ui inverted eleven wide column">
+
+                    <div class=" ui segments">
+                        <div class=" ui segment">
+                            <img class="ui fluid image" src="/images/images.png">
+                        </div>
+                        <div class="ui segment main-stuff">
+                            <div class="ui grid">
+                                <div class="move-me-nup">
+                                    <h1 class="ui blue header"> Organize Your Travel Plans </h1>
+                                    <h2> GetOut.site offers travellers a way to easily communicate, share events and
+                                        plan</h2>
+                                    <h1 class="ui blue  header">Easy Communication</h1>
+                                    <h2> The vote feature allows users to vote about events, accommodations, restaurants
+                                        and
+                                        more</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 

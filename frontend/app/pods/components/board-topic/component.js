@@ -52,12 +52,13 @@ export default Ember.Component.extend(Ember.Evented, {
 
       const urlToPost = "/boards/"+boardId+"/topics/"+topicId+"/suggestions";
       console.log(urlToPost);
+      const suggestion = Ember.$("#"+this.get('uniqueTextBox')).val();
       const opts = {
         url: urlToPost,
         type: 'POST',
         // dataType: 'json',
         contentType: 'application/json',
-        data: JSON.stringify({name: this.newSuggestion, placeId: placeId})
+        data: JSON.stringify({name: suggestion, placeId: placeId})
       };
 
       const self = this;

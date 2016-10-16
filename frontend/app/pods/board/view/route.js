@@ -22,8 +22,8 @@ export default Ember.Route.extend({
 
     console.log(params);
     console.log(trans);
-    return Ember.$.getJSON(url);
-    /*
+    // return Ember.$.getJSON(url);
+
     return {
       token: "kkk",
       status: 200,
@@ -58,19 +58,19 @@ export default Ember.Route.extend({
         }],
         chatToken: "aksh"
       }
-    };*/
+    };
   },
-  afterModel: function (model, transition) {
-    this.get('poll').setup({
-      name: 'boardPoll', // a poll name should be unique
-      resource_name: 'board', // a resource name
-      url: this.url // url to fetch resource
-    });
-  },
-  actions: {
-    willTransition: function (transition) {
-      this._super(transition);
-      this.get('poll').removePoll('boardPoll'); // remove the resource from polling
-    },
-  }
+  // afterModel: function (model, transition) {
+  //   this.get('poll').setup({
+  //     name: 'boardPoll', // a poll name should be unique
+  //     resource_name: 'board', // a resource name
+  //     url: this.url // url to fetch resource
+  //   });
+  // },
+  // actions: {
+  //   willTransition: function (transition) {
+  //     this._super(transition);
+  //     this.get('poll').removePoll('boardPoll'); // remove the resource from polling
+  //   },
+  // }
 });
