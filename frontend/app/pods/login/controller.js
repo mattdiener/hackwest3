@@ -4,17 +4,17 @@ export default Ember.Controller.extend({
   session: Ember.inject.service('session'),
 
   actions: {
-    authenticate() {
-      let {identification, password} = this.getProperties('identification', 'password');
-      this.get('session').authenticate('authenticator:drsauth', identification, password)
-        .then((response) => {
-          if (response.staus === 200 && !!response.clientId) {
-            this.get('session').set("clientId", response.clientId);
-          }
-        })
-        .catch((reason) => {
-          this.set('errorMessage', reason.error || reason);
-        });
+    login() {
+      let {identification} = this.getProperties('identification');
+      let currentBoardUsers = JSON.parse(localStorage.boardUsers)
+
+      console.log(identification);
+      console.log(this.get('model'));
+
+      currentBoardUsers[this.get('model')] = identification;
+      localStorage.boardUsers = JSON.stringify(currentBoardUsers);
+
+      this.transitionToRoute('board.view',this.get('model'));
     }
   }
 });

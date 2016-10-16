@@ -10,6 +10,7 @@ export default Ember.Controller.extend({
   currentBoardToken: null,
   currentPlaceDetail: null,
   showRightPanel: false,
+  userId: null,
 
   init() {
     Ember.$.getScript('/js/embedTlkio.js');
@@ -33,6 +34,8 @@ export default Ember.Controller.extend({
       this.set('theModel', model);
       console.log(model);
       this.set('currentBoardToken', model.boardId);
+      console.log(this.get('model.boardId'));
+      this.set('userId', JSON.parse(localStorage.boardUsers)[this.get('model.boardId')] );
     }
   }.observes('model'),
 

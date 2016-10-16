@@ -5,14 +5,14 @@ export default Ember.Component.extend( {
   suggestionId: Ember.computed('suggestion', () => { return this.get('suggestion.suggestionId'); }),
   disableYes: false,
   disableNo: false,
-  userIdStub: "Matt",
+  userId: Ember.computed('suggestion.boardId', () => { return JSON.parse(localStorage.boardUsers)[this.get('suggestion.boardId')]; }),
 
   didInsertElement() {
     const voters = this.get('suggestion.votes');
     if (voters) {
       for (let i = 0; i < voters.length; i++) {
         // TODO: change userId once we got this right
-        if (voters[i].name === this.userIdStub) {
+        if (voters[i].name === this.userId) {
           localStorage[this.get('suggestion.suggestionId')] = voters[i].vote;
           break;
         }
@@ -55,7 +55,7 @@ export default Ember.Component.extend( {
         // dataType: 'json',
         contentType: 'application/json',
         data: JSON.stringify({
-          name: this.userIdStub,
+          name: this.userId,
           vote: yes ? 1 : 0
         })
       };

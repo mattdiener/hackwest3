@@ -7,7 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('login');
+  this.route('login', {path:'login/:token'});
   this.route('account', function() {
     this.route('new');
   });
