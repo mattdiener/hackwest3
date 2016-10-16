@@ -1,6 +1,82 @@
 #main-board {
   height: 100%;
 
+  #menu-container{
+    height: 10%;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 16px;
+    box-shadow: gray 0px 4px 10px 0px;
+  }
+
+  #boxything{
+    width:100%;
+  }
+
+  #tlkio-cover{
+    width: 95%;
+    height: 60px;
+    position: absolute;
+    display: block;
+    background: #dadada;
+    z-index: 1;
+    font-size: x-large;
+    padding-left: 50px;
+    padding-top: 30px;
+  }
+
+  #board-title{
+    min-width: 300px;
+  }
+
+  #top-menu{
+    height:100%;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: #313747;
+  }
+
+  #top-menu .item{
+    color: #E0E0DE;
+  }
+
+  #main-ui{
+    height:90%;
+  }
+
+  #topic-view{
+    height:90%;
+    overflow: scroll;
+  }
+
+  #topic-input{
+    height:10%;
+  }
+
+  .add-button{
+    width: 32px;
+    padding: 10px;
+    margin-top: 0px;
+  }
+
+  .suggestion-button{
+    padding: 6px;
+    width: 26px;
+  }
+
+  .suggestion-up:disabled{
+    background-color: #64ce83
+  }
+
+  .suggestion-down:disabled{
+    background-color: #ce6483
+  }
+
+  .full-height{
+    height:100%;
+  }
+
   .ember-inline-edit-save {
     display: none;
   }
@@ -20,12 +96,11 @@
 
   .suggestion-vote {
     float: right;
-    width: 29%;
   }
 
   .suggestion-ok {
     float: right;
-    width: 10%;
+    width: 50px;
     margin: .25rem 0;
   }
 
@@ -40,12 +115,12 @@
     width: 100%;
 
     .topic-input {
-      width: 91%;
+      width: 80%;
     }
     .the-topic {
-      width: 100%;
+          width: 95%;
       #the-topic {
-        width: 100%;
+            width: 95%;
       }
     }
 
@@ -64,12 +139,12 @@
     margin-top: 15px;
 
     .suggestion-input {
-      width: 91%;
+      width: 80%;
     }
     .the-suggestion {
-      width: 100%;
+        width: 95%;
       #the-suggestion {
-        width: 100%;
+        width: 95%;
       }
     }
 
